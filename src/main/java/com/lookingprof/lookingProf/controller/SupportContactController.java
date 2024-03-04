@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/supportContact")
+@CrossOrigin("*")
 public class SupportContactController {
 
     private final SupportContactService supportContactService;

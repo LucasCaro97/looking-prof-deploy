@@ -16,6 +16,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/comment")
 @RequiredArgsConstructor()
+@CrossOrigin("*")
 public class CommentController {
 
     private final CommentService commentService;

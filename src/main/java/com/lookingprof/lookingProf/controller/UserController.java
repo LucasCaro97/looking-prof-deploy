@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("user")
-//@CrossOrigin(value = )
+@CrossOrigin("*")
 @RequiredArgsConstructor
 public class UserController {
 

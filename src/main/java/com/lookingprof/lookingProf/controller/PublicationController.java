@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/publication")
+@CrossOrigin("*")
 public class PublicationController {
 
 
