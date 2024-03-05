@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/provinces")
-@CrossOrigin("*")
+@CrossOrigin(origins = {"*"})
 public class ProvinceController {
 
     @Autowired
