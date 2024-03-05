@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -49,7 +50,7 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.GET, "/user/firstName").authenticated()
                             .anyRequest().permitAll();
                 })
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(Customizer.withDefaults())
                 .sessionManagement(sessionManager ->
                     sessionManager
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -64,6 +65,7 @@ public class SecurityConfig {
             corsConfiguration.addAllowedOriginPattern("*");
             corsConfiguration.addAllowedHeader("*");
             corsConfiguration.addAllowedMethod("*");
+            corsConfiguration.setAllowCredentials(true);
             UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
             urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
             return urlBasedCorsConfigurationSource;
