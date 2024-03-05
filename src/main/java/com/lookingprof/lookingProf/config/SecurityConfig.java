@@ -49,7 +49,7 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.GET, "/user/firstName").authenticated()
                             .anyRequest().permitAll();
                 })
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(cors -> cors.disable())
                 .sessionManagement(sessionManager ->
                     sessionManager
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -61,10 +61,10 @@ public class SecurityConfig {
         @Bean
         CorsConfigurationSource corsConfigurationSource() {
             CorsConfiguration corsConfiguration = new CorsConfiguration();
-            corsConfiguration.addAllowedOriginPattern("*");
+            corsConfiguration.setAllowedOriginPatterns(Arrays.asList());
             corsConfiguration.addAllowedHeader("*");
             corsConfiguration.addAllowedMethod("*");
-            corsConfiguration.setAllowCredentials(false);
+            corsConfiguration.setAllowCredentials(true);
             UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
             urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
             return urlBasedCorsConfigurationSource;
