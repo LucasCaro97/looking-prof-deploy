@@ -49,7 +49,6 @@ public class SecurityConfig {
                             .requestMatchers(HttpMethod.GET, "/user/firstName").authenticated()
                             .anyRequest().permitAll();
                 })
-                .cors(cors -> cors.disable())
                 .sessionManagement(sessionManager ->
                     sessionManager
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
