@@ -16,7 +16,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/city")
-@CrossOrigin(origins = {"*"})
 public class CityController {
 
     @Autowired

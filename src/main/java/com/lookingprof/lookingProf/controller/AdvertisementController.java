@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/advertisement")
-@CrossOrigin(origins = {"*"})
 public class AdvertisementController {
 
     @Autowired

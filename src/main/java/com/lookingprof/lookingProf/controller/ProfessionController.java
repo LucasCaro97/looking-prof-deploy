@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/profession")
-@CrossOrigin(origins = {"*"})
 public class ProfessionController {
 
     @Autowired
