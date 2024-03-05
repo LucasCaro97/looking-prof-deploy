@@ -59,15 +59,4 @@ public class SecurityConfig {
                 .build();
     }
 
-        @Bean
-        CorsConfigurationSource corsConfigurationSource() {
-            CorsConfiguration corsConfiguration = new CorsConfiguration();
-            corsConfiguration.addAllowedOriginPattern("*");
-            corsConfiguration.addAllowedHeader("*");
-            corsConfiguration.addAllowedMethod("*");
-            corsConfiguration.setAllowCredentials(true);
-            UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-            urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-            return urlBasedCorsConfigurationSource;
-        }
 }
